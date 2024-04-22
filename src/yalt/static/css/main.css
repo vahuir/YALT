@@ -1,0 +1,312 @@
+body {
+  font-family: "Lato", sans-serif;
+}
+
+a, a:visited, a:hover, a:active {
+  color: inherit;
+  text-decoration: none;
+}
+
+a.email {
+  color: cornflowerblue;
+}
+
+.tab {
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0px;
+  left: 10px;
+  background: #eee;
+  padding: 8px 0;
+  
+}
+.sidenav {
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 55px;
+  left: 10px;
+  background: #fff;
+  overflow: auto;
+  padding: 8px 0px;
+  padding-bottom: 25px;
+  max-height: 100vh;
+  
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 16px;
+  color: #2196F3;
+  /*display: block;*/
+}
+
+.sidenav a:hover {
+  color: #064579;
+}
+
+.main {
+  margin-left: 52%; /* Same width as the sidebar + left position in px */
+  font-size: 16px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 14px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+div.logos {
+  width: 100%;
+  text-align: center;
+}
+
+div.logos img {
+  width: 12em;
+  vertical-align: middle;
+}
+
+div.version-author,
+div.license {
+  width: 100%;
+  text-align: center;
+  font-family: monospace;
+}
+
+div.version-author {
+  margin-bottom: 35px;
+  font-size: 14px;
+}
+
+div.app-title {
+  width: 100;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 200px;
+}
+
+div h3.app-subtitle {
+  font-family: monospace;
+  color: gray;
+  margin-top: -26px;
+  margin-right: 21px;
+}
+
+div.folder-selection {
+  width: 100;
+  text-align: center;
+  margin-bottom: 200px;
+}
+
+div.list-samples {
+  width: 100;
+  text-align: center;
+  margin-bottom: 200px;
+}
+
+div.list-samples table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+th.actions {
+  width: 100px;
+}
+
+th.sample {
+  width: 200px;
+}
+
+th.status {
+  width: 150px;
+}
+
+.yalt {
+  width: 50px;
+  margin: 0px 0px -10px 15px;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 14px;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+  font-size: 14px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+span.color-0 {
+  background-color: #7FFFD4;
+}
+
+span.color-1 {
+  background-color: #e6b0aa;
+}
+
+span.color-2 {
+  background-color: #7fb3d5;
+}
+
+span.color-3 {
+  background-color: #76d7c4;
+}
+
+span.color-4 {
+  background-color: #f7dc6f;
+}
+
+span.color-5 {
+  background-color: #aeb6bf;
+}
+
+span.color-6 {
+  background-color: #e67e22;
+}
+span.color-7 {
+  background-color: #b7950b;
+}
+span.color-8 {
+  background-color: #28b463;
+}
+span.color-9 {
+  background-color: #bb8fce;
+}
+span.color-10 {
+  background-color: #D2691E;
+}
+span.color-11 {
+  background-color: #DC143C;
+}
+span.color-12 {
+  background-color: #008B8B;
+}
+span.color-13 {
+  background-color: #8B008B;
+}
+span.color-14 {
+  background-color: #556B2F;
+}
+span.color-15 {
+  background-color: #FF8C00;
+}
+span.color-16 {
+  background-color: #E9967A;
+}
+span.color-17 {
+  background-color: #483D8B;
+}
+span.color-18 {
+  background-color: #FF1493;
+}
+span.color-19 {
+  background-color: #00BFFF;
+}
+span.color-20 {
+  background-color: #DCDCDC;
+}
+span.color-21 {
+  background-color: #FFD700;
+}
+span.color-22 {
+  background-color: #ADFF2F;
+}
+span.color-23 {
+  background-color: #E6E6FA;
+}
+span.color-24 {
+  background-color: #778899;
+}
+span.color-25 {
+  background-color: #BA55D3;
+}
+span.color-26 {
+  background-color: #00FA9A;
+}
+span.color-27 {
+  background-color: #6B8E23;
+}
+span.color-28 {
+  background-color: #FFA500;
+}
+span.color-29 {
+  background-color: #FF0000;
+}
+span.color-30 {
+  background-color: #708090;
+}
+span.color-31 {
+  background-color: #008080;
+}
+span.color-32 {
+  background-color: #FFFF00;
+}

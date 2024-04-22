@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>YALT!: Yet Another Labeling Tool!</title>
+    <!-- <script type="text/javascript" src="/eel.js"></script> -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename= 'css/main.css') }}"
+    >
+    <!-- favicon.svg -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐶</text></svg>">
+
+    <script>
+        function confirm_click(sample) {
+            return confirm(
+                `You will delete labels for sample '${sample}'. Continue?`
+            )
+        }
+    </script>
+</head>
+
+
+<body>
+
+<div class="app-title">
+    <h1>YALT!<img class="yalt" src="{{ url_for('static', filename= 'img/yalt.png')}}"></h1>
+    <span class="user"><b>User:</b> {{user}}</span><a href="/" class="tooltip"style="font-size: 20px"><span class="tooltiptext" >Reselect samples</span>&emsp;| 📂</a>
+</div>
+
+<div class="list-samples">
+    <h3>List of samples<a href="/collect-labels" class="tooltip"><span class="tooltiptext">Pack labels</span>&emsp;| 📦</a></h3>
+    <table>
+        <thead>
+            <tr>
+                <th class="actions" scope="actions">Actions</th>
+                <th class="sample" scope="sample">Sample</th>
+                <th class="status" scope="status">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i, name, count in samples %}
+                <tr>
+                    <td>
+                        <a href="/label-sample/{{i}}" class="tooltip"><span class="tooltiptext">Edit labels</span>✏️</a>
+                        <a onclick="return confirm_click('{{name|safe}}');" href="/clear-labels/{{i}}" class="tooltip"><span class="tooltiptext">Delete labels</span>❌</a> 
+                    </td>
+                    <td>{{name}}</td>
+                    {% if count == 0 %}
+                    <td><b style='color:crimson;'>NOT LABELED</b></td>
+                    {% elif count < 10 %}
+                    <td><b style='color:orange;'>UNFINISHED</b></td>
+                    {% else %}
+                    <td><b style='color:green;'>LABELED</b></td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<script>
+    message = "{{message}}"
+
+    if (message != '') {
+        alert(message)
+    }
+</script>
+
+</body>
+</html>

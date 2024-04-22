@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>YALT!: Yet Another Labeling Tool!</title>
+    <!-- <script type="text/javascript" src="/eel.js"></script> -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename= 'css/main.css') }}"
+    >
+    <!-- favicon.svg -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐶</text></svg>">
+</head>
+<body>
+
+<script>
+    let user = '{{user}}'
+
+    while (user == null || user == "") {
+        user = prompt("Please, enter your user name");
+    }
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", `/set_user_name/${user}`);
+    xhr.send();
+</script>
+
+<div class="app-title">
+    <h1>Welcome to YALT!<img class="yalt" src="{{ url_for('static', filename= 'img/yalt.png')}}" style="margin: 0px 0px -20px 15px;"></h1>
+    <h3 class="app-subtitle">Yet Another Labeling Tool!</h3>
+    <span id="user" class="user"><b>User:</b> ${user}</span><a href="/logout" class="tooltip"style="font-size: 20px"><span class="tooltiptext" >Close session</span>&emsp;| 🚪</a>
+</div>
+
+<div class="folder-selection">
+    <h3>Please, select the folder that contains the sample files to start labeling</h3>
+     <button onclick="selectSamples()">Select samples</button>
+</div>
+
+<div class="version-author">
+    version: 0.1 | 2024 - Vicent Ahuir (<a class="email" href="mailto:viahes@dsic.upv.es">viahes@dsic.upv.es</a>)
+</div>
+<div class="logos">
+    <img class="vrain" src="{{ url_for('static', filename= 'img/vrain.png')}}">
+    <img class="upv" src="{{ url_for('static', filename= 'img/upv.jpg')}}">
+</div>
+<div class="license">
+    This application is distributed under Apache License 2.0
+</div>
+
+<script>
+
+document.getElementById('user').innerHTML = `<b>User:</b> ${user}`
+
+function selectSamples() {
+    window.location.replace("/select-samples")
+}
+
+</script>
+
+</body>
+</html>
