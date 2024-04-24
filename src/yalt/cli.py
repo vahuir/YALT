@@ -1,6 +1,8 @@
 import os
 import sys
 import json
+import argparse
+
 from urllib.parse import quote
 from pathlib import Path
 
@@ -28,6 +30,11 @@ app = Flask(
 sample_list = []
 user_name = ""
 message = ""
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--development", default=False, action="store_true")
+parser.add_argument("--user", default="")
+args = parser.parse_args()
 
 
 def get_labels(base_name, remove_others=True):
@@ -101,7 +108,7 @@ def logout():
     user_name = ""
 
     if os.path.isfile(".yalt_user"):
-        os.remove(file)
+        os.remove(".yalt_user")
 
     return redirect("/")
 
@@ -242,6 +249,9 @@ def run():
         with open(".yalt_user") as ifile:
             user_name = ifile.readline().strip()
 
+    else:
+        user_name = args.user
+
     if not os.path.isfile("./task/validation.yaml"):
         print("./task/validation.yaml not found", file=sys.stderr)
         exit(-1)
@@ -261,7 +271,8 @@ def run():
     if not DEVELOPMENT:
         window = webview.create_window(
             'YALT!: Yet Another Labeling Tool!', app,
-            min_size=(1280, 720), maximized=True, zoomable=True
+            min_size=(1280, 720), maximized=True, zoomable=True,
+            text_select=False
         )
 
         webview.start()
@@ -271,6 +282,5 @@ def run():
 
 
 if __name__ == "__main__":
-    DEVELOPMENT = len(sys.argv) == 2 and sys.argv[1] == "--development"
-
+    DEVELOPMENT = args.development
     run()

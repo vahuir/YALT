@@ -1,7 +1,7 @@
 from setuptools import setup, find_namespace_packages
 
 setup(
-    version="0.1",
+    version="0.1.1",
     name="YALT",
     description="Telegram Notifier executes bash commands and monitors them.",
     author="Vicent Ahuir",
